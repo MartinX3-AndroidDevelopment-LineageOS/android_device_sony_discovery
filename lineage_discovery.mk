@@ -12,14 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_discovery.mk \
-    $(LOCAL_DIR)/lineage_discovery_DSDS.mk
+# Inherit device parts
+$(call inherit-product, device/sony/discovery/aosp_h3213.mk)
 
-COMMON_LUNCH_CHOICES += \
-    lineage_discovery-eng \
-    lineage_discovery-userdebug \
-    lineage_discovery-user \
-    lineage_discovery_DSDS-eng \
-    lineage_discovery_DSDS-userdebug \
-    lineage_discovery_DSDS-user
+# Override Product Name
+PRODUCT_NAME := lineage_discovery
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := discovery
